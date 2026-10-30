@@ -2,6 +2,7 @@
 
 import re
 import subprocess
+import sys
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -46,8 +47,19 @@ def parse_failures(output: str) -> list[TestFailure]:
 
 
 def run_tests(target_dir: str | Path = ".") -> list[TestFailure]:
+    p = Path(target_dir)
+    if p.is_file():
+        cwd = str(p.parent)
+        test_arg = p.name
+    else:
+        cwd = str(p)
+        test_arg = "."
+
     proc = subprocess.run(
-        ["pytest", "-q", "--tb=short", str(target_dir)], capture_output=True, text=True
+        [sys.executable, "-m", "pytest", "-q", "--tb=short", test_arg],
+        cwd=cwd,
+        capture_output=True,
+        text=True,
     )
     return parse_failures(proc.stdout or proc.stderr) if proc.returncode != 0 else []
 
