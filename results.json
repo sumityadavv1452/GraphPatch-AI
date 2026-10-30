@@ -1,0 +1,161 @@
+{
+  "suite": "GraphPatch-AI Benchmark Evaluation",
+  "version": "0.1.0",
+  "total_cases": 10,
+  "fixed_first_attempt": 9,
+  "fixed_with_retries": 0,
+  "total_resolved": 9,
+  "failed": 1,
+  "first_attempt_rate_percent": 90.0,
+  "overall_resolved_rate_percent": 90.0,
+  "failure_rate_percent": 10.0,
+  "average_latency_seconds": 2.01,
+  "average_tokens_consumed": 397,
+  "naive_baseline_comparison": {
+    "naive_whole_file_average_tokens": 4820,
+    "ast_scope_average_tokens": 285,
+    "context_reduction_percent": 94.1
+  },
+  "cases": [
+    {
+      "case_id": "01",
+      "name": "case_01_off_by_one",
+      "category": "Off-by-one",
+      "description": "Off-by-one slicing error",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.5,
+      "tokens": {
+        "prompt": 322,
+        "completion": 115,
+        "total": 437
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "02",
+      "name": "case_02_type_error",
+      "category": "Type Error",
+      "description": "Type mismatch in string concatenation",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.45,
+      "tokens": {
+        "prompt": 302,
+        "completion": 109,
+        "total": 411
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "03",
+      "name": "case_03_missing_key",
+      "category": "Missing Key",
+      "description": "Unchecked dictionary key access",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.37,
+      "tokens": {
+        "prompt": 278,
+        "completion": 94,
+        "total": 372
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "04",
+      "name": "case_04_zero_division",
+      "category": "Zero Division",
+      "description": "Division by zero without guard",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.37,
+      "tokens": {
+        "prompt": 294,
+        "completion": 121,
+        "total": 415
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "05",
+      "name": "case_05_attribute_error",
+      "category": "Attribute Error",
+      "description": "Calling method attribute without invoking",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.35,
+      "tokens": {
+        "prompt": 278,
+        "completion": 91,
+        "total": 369
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "06",
+      "name": "case_06_index_error",
+      "category": "Index Error",
+      "description": "Index lookup on empty sequence",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.39,
+      "tokens": {
+        "prompt": 270,
+        "completion": 97,
+        "total": 367
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "07",
+      "name": "case_07_boundary_condition",
+      "category": "Boundary Condition",
+      "description": "Strict inequality excluding range boundaries",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.35,
+      "tokens": {
+        "prompt": 294,
+        "completion": 103,
+        "total": 397
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "08",
+      "name": "case_08_logic_inversion",
+      "category": "Logic Inversion",
+      "description": "Inverted boolean retry condition",
+      "status": "Failed",
+      "latency_s": 2.96,
+      "tokens": {
+        "prompt": 286,
+        "completion": 97,
+        "total": 383
+      },
+      "notes": "AssertionError: assert False is True"
+    },
+    {
+      "case_id": "09",
+      "name": "case_09_case_sensitivity",
+      "category": "Case Mismatch",
+      "description": "Case sensitivity mapping failure",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 1.38,
+      "tokens": {
+        "prompt": 310,
+        "completion": 115,
+        "total": 425
+      },
+      "notes": "Resolved cleanly"
+    },
+    {
+      "case_id": "10",
+      "name": "case_10_external_import",
+      "category": "Import Deprecation",
+      "description": "Deprecated import from collections instead of collections.abc",
+      "status": "Fixed on 1st Attempt",
+      "latency_s": 6.03,
+      "tokens": {
+        "prompt": 294,
+        "completion": 103,
+        "total": 397
+      },
+      "notes": "Resolved cleanly"
+    }
+  ]
+}
